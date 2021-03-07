@@ -6,7 +6,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/ping', methods=['POST'])
 def ping():
     print("ping request: ", request.json)
-    return (jsonify(Ping="pong"),200)
+    return (jsonify(Ping="pong"),200)fgf
 
 @app.route('/api', methods=['POST'])
 def apiRequest():
