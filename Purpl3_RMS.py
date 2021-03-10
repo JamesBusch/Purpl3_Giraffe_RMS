@@ -37,6 +37,22 @@ OPS = {
 }
 
 
+#Functions for login and operations
+LOGIN_OPS = {
+  pref.getNoCheck(pref.LOGIN_LOGIN): login.login,
+  pref.getNoCheck(pref.LOGIN_CHANGE_PASSWORD): login.changePassword,
+  pref.getNoCheck(pref.LOGIN_RESET_PASSWORD): login.resetPassword,
+}
+
+OPS = {
+  pref.getNoCheck(pref.OPERATION_RUN_SCRIPT): op.runScripts,
+  pref.getNoCheck(pref.OPERATION_MANAGE_SCRIPT): op.manageScripts,
+  pref.getNoCheck(pref.OPERATION_MANAGE_COMPUTERS): op.manageComputers,
+  pref.getNoCheck(pref.OPERATION_MANAGE_SCRIPT_LOGS): op.manageScriptLogs,
+  pref.getNoCheck(pref.OPERATION_SCHEDULE_SCRIPT): op.scheduleScript,
+}
+
+
 
 @app.route(pref.getNoCheck(pref.CONFIG_PING_ENDPOINT), methods=['POST'])
 def ping():
