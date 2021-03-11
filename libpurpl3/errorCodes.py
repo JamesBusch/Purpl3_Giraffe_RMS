@@ -91,10 +91,9 @@ def getErrorCodeList() -> dict:
     getAttrName(ERROR_FILE_NOT_FOUND): Error(3,"Returned: %d, file %s was not found"),
     
     getAttrName(ERROR_ATTRIBUTE_NOT_FOUND) : Error(20,"Returned: %d, Attribute %s could not be found."),
-
+    
     #46-59 ssh errors
     getAttrName(ERROR_CONNECTION_FAILED): Error(46,"Returned: %d, Connection to %s@%s could not be made."),
-
     getAttrName(ERROR_CANT_FIND_SSH_KEY) : Error(49,"Returned %d: failed to find a valid ssh key at %s."),
 
     getAttrName(ERROR_SSH_AUTHENTICATION_FAILED) : Error(50,"Returned %d: failed authentication over ssh for %s@%s."),
