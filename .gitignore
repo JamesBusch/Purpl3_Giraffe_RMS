@@ -5,5 +5,9 @@ junit.xml
 __pycache__
 .pytest*
 .vscode
+<<<<<<< HEAD
 key
 key.pub
+=======
+key
+>>>>>>> 99a4e9c (ReqID:8 connect though ssh with key)
