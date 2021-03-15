@@ -1,5 +1,5 @@
 import './table.css'
-import Button from './button/button_soory';
+import Button from './button/button_soory.js';
 
 const Table = (props) => {
     const comp = this;

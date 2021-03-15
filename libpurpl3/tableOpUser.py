@@ -36,7 +36,6 @@ class UserTable(tableOp.Table):
         @return errorCode: Error
         '''
         return pref.getError(pref.ERROR_SUCCESS)
-<<<<<<< HEAD
     
     @staticmethod
     def checkLogin(userName: str, password: str)->int:
@@ -50,8 +49,6 @@ class UserTable(tableOp.Table):
         '''
 
         return True
-=======
->>>>>>> 4b82a6e (Skeleton functions created for all operations that will be performed on the sql tables (Script, ScriptLog, Computer, User). Parent and children classes Table(children - ScriptTable, ScriptLogTable, ComputerTable, UserTable) and Entry(children - Script, ScriptLog, Computer, User) created to hold these functions. Some inital error codes added to errorCodes.py)
 
     # overriding abstract method
     @staticmethod

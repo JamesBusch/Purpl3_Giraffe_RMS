@@ -1,3 +1,4 @@
+
 import logo from '../../logo_p.png';
 import './run_script_page.css';
 import axios from "axios";
@@ -26,7 +27,7 @@ const Run_script_page = (props) => {
                 <div className="column">
                 <h1>Select Script</h1>
                 <div className="scroll">
-                    <Table input={[{name:'Fuck me script',script:Select_script_func},{name:'diamond hands script',script:Select_script_func},{name:'monkey see monkey do',script:Select_script_func}]}/>
+                    <Table input={[{name:'script_1',script:Select_script_func},{name:'diamond hands script',script:Select_script_func},{name:'monkey see monkey do',script:Select_script_func}]}/>
                 </div>
                 </div>
                 <p id="Select_Computer_text"></p>
@@ -40,7 +41,7 @@ const Run_script_page = (props) => {
         </div>
     )
 }
-
+/*
 function Ping(){
 axios.post("/ping", {
     body: {ping:"ping"}
@@ -49,7 +50,7 @@ axios.post("/ping", {
     }).catch((res) =>{
     alert("Post Failed")
     })
-}
+}*/
   
 function Select_computer_func(parms){
     let text = document.getElementById("Select_Computer_text");
