@@ -1,4 +1,3 @@
-import logo from '../../logo_p.png';
 import './run_script_page.css';
 import axios from "axios";
 import Table from '../table/table_soory';

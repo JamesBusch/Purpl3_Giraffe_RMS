@@ -68,6 +68,8 @@ class MenuTab extends React.Component {
                 </button>
               </div>
 
+    
+
     let displayCurrentTab;
     if (this.state.currentTab === "Run Script") {
       displayCurrentTab =  <Run_script_page/>
