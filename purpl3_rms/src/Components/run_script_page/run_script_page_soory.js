@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 import logo from '../../logo_p.png';
->>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
 import './run_script_page.css';
 import axios from "axios";
 import Table from '../table/table_soory';
@@ -9,8 +7,6 @@ import Table from '../table/table_soory';
 const Run_script_page = (props) => {
     return (
         <div>
-<<<<<<< HEAD
-=======
             <header className="App-header">
                 <div className="logo">
                 <img className="logoImg" src={logo}/>
@@ -21,7 +17,6 @@ const Run_script_page = (props) => {
                     Pingd
                 </button>
             </nav>
->>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
             <div className="body">
                 <div className="column">
                 <h1>Select Computer</h1>
@@ -32,7 +27,7 @@ const Run_script_page = (props) => {
                 <div className="column">
                 <h1>Select Script</h1>
                 <div className="scroll">
-                    <Table input={[{name:'Fuck me script',script:Select_script_func},{name:'diamond hands script',script:Select_script_func},{name:'monkey see monkey do',script:Select_script_func}]}/>
+                    <Table input={[{name:'script_1',script:Select_script_func},{name:'diamond hands script',script:Select_script_func},{name:'monkey see monkey do',script:Select_script_func}]}/>
                 </div>
                 </div>
                 <p id="Select_Computer_text"></p>
@@ -46,11 +41,8 @@ const Run_script_page = (props) => {
         </div>
     )
 }
-<<<<<<< HEAD
 /*
-=======
-
->>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
+>>>>>>> 87ce832 (merged the main page and run script page)
 function Ping(){
 axios.post("/ping", {
     body: {ping:"ping"}
@@ -60,10 +52,8 @@ axios.post("/ping", {
     alert("Post Failed")
     })
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
-=======
-}
->>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
   
 function Select_computer_func(parms){
     let text = document.getElementById("Select_Computer_text");
