@@ -95,6 +95,7 @@ def getErrorCodeList() -> dict:
     getAttrName(ERROR_ATTRIBUTE_NOT_FOUND) : Error(20,"Returned: %d, Attribute %s could not be found."),
 
     getAttrName(ERROR_SQL_FAILURE): Error(21, "Skeleton message for SQL errors."),
+<<<<<<< HEAD
     #31-45 account managment
     getAttrName(ERROR_USER_AUTHENTICATION_ERROR): Error(31, "Returned: %d, failed login for %s"),
     getAttrName(ERROR_USERNAME_INVALID): Error(32, "Return: %d, failed login due too invalid username"),
@@ -108,6 +109,9 @@ def getErrorCodeList() -> dict:
     getAttrName(ERROR_SSH_PERMISSION_DENIED): Error(52, "Returned %d: permission denied accessing: %s"),
     getAttrName(ERROR_SSH_FAILED_TO_EXECUTE_SCRIPT): Error(53, "Returned %d: failed to execute script: %s"),
     getAttrName(ERROR_SSH_SCRIPT_FAILED_WITH_ERROR_CODE): Error(54, "Returned %d: script failed with error code: %s"),
+=======
+
+>>>>>>> 4b82a6e (Skeleton functions created for all operations that will be performed on the sql tables (Script, ScriptLog, Computer, User). Parent and children classes Table(children - ScriptTable, ScriptLogTable, ComputerTable, UserTable) and Entry(children - Script, ScriptLog, Computer, User) created to hold these functions. Some inital error codes added to errorCodes.py)
     #Vars for error codes
     getAttrName(ERROR_VAR) : {
       getAttrName(ERROR_VAR_CODE) : "code",
