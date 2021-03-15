@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import logo from '../../logo_p.png';
+>>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
 import './run_script_page.css';
 import axios from "axios";
 import Table from '../table/table_soory';
@@ -5,6 +9,19 @@ import Table from '../table/table_soory';
 const Run_script_page = (props) => {
     return (
         <div>
+<<<<<<< HEAD
+=======
+            <header className="App-header">
+                <div className="logo">
+                <img className="logoImg" src={logo}/>
+                </div>
+            </header>
+            <nav>
+                <button onClick={Ping}>
+                    Pingd
+                </button>
+            </nav>
+>>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
             <div className="body">
                 <div className="column">
                 <h1>Select Computer</h1>
@@ -29,7 +46,11 @@ const Run_script_page = (props) => {
         </div>
     )
 }
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
 function Ping(){
 axios.post("/ping", {
     body: {ping:"ping"}
@@ -38,7 +59,11 @@ axios.post("/ping", {
     }).catch((res) =>{
     alert("Post Failed")
     })
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> 253bb60 (adding the run script page and how to commit and rebase and stuff)
   
 function Select_computer_func(parms){
     let text = document.getElementById("Select_Computer_text");
