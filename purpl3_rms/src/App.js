@@ -1,5 +1,6 @@
 import logo from './res/logo.png';
 import './App.css';
+<<<<<<< HEAD
 import axios from "axios";
 import React, { Component, useState } from 'react';
 import {
@@ -14,11 +15,17 @@ import Schedule from './pages/Schedule'
 import ScriptLogs from './pages/ScriptLogs'
 import ScriptsViewer from './pages/ScriptsViewer'
 import ErrorDoc from './pages/ErrorDoc'
+=======
+import React, { Component } from 'react';
+import MenuTab from "./Components/MenuTab"
+
+>>>>>>> ba423e1 (merged the main page and run script page)
 
 function App() {
 
   return (
     <div className="App">
+<<<<<<< HEAD
       
       <HashRouter>
         <div className="logoHeader">
@@ -48,6 +55,9 @@ function App() {
       </HashRouter>
 
       
+=======
+      <MenuTab/>
+>>>>>>> ba423e1 (merged the main page and run script page)
     </div>
   );
 }
