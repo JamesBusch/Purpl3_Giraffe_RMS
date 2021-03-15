@@ -51,24 +51,22 @@ class MenuTab extends React.Component {
 
   render() {
     let tabs = <div>
-                <button onClick={this.handleRunScript}>
+                <button class="trapezoid" onClick={this.handleRunScript}>
                   Run Script
                 </button>
-                <button onClick={this.handleScriptLogs}>
+                <button class="trapezoid" onClick={this.handleScriptLogs}>
                   Script Logs
                 </button>
-                <button onClick={this.handleSchedule}>
+                <button class="trapezoid" onClick={this.handleSchedule}>
                   Schedule
                 </button>
-                <button onClick={this.handleScriptViewer}>
+                <button class="trapezoid" onClick={this.handleScriptViewer}>
                   Script Viewer
                 </button>
-                <button onClick={this.handleErrorDoc}>
+                <button class="trapezoid" onClick={this.handleErrorDoc}>
                   Error Doc
                 </button>
               </div>
-
-    
 
     let displayCurrentTab;
     if (this.state.currentTab === "Run Script") {
