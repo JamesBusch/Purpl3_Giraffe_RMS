@@ -42,7 +42,6 @@ const Run_script_page = (props) => {
     )
 }
 /*
->>>>>>> 87ce832 (merged the main page and run script page)
 function Ping(){
 axios.post("/ping", {
     body: {ping:"ping"}
@@ -51,8 +50,6 @@ axios.post("/ping", {
     }).catch((res) =>{
     alert("Post Failed")
     })
-<<<<<<< HEAD
-<<<<<<< HEAD
 }*/
   
 function Select_computer_func(parms){
