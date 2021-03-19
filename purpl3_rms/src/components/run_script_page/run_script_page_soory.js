@@ -1,22 +1,11 @@
 
-import logo from '../../logo_p.png';
 import './run_script_page.css';
 import axios from "axios";
-import Table from '../table/table_soory';
+import Table from '../table/table_soory.js';
 
 const Run_script_page = (props) => {
     return (
         <div>
-            <header className="App-header">
-                <div className="logo">
-                <img className="logoImg" src={logo}/>
-                </div>
-            </header>
-            <nav>
-                <button onClick={Ping}>
-                    Pingd
-                </button>
-            </nav>
             <div className="body">
                 <div className="column">
                 <h1>Select Computer</h1>
@@ -50,7 +39,20 @@ axios.post("/ping", {
     }).catch((res) =>{
     alert("Post Failed")
     })
-}*/
+}
+
+            <header className="App-header">
+                <div className="logo">
+                <img className="logoImg" src={logo}/>
+                </div>
+            </header>
+            <nav>
+                <button onClick={Ping}>
+                    Pingd
+                </button>
+            </nav>
+
+*/
   
 function Select_computer_func(parms){
     let text = document.getElementById("Select_Computer_text");

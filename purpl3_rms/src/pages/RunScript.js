@@ -1,9 +1,10 @@
 import React from 'react'
+import Run_script_page from '../components/run_script_page/run_script_page_soory.js'
 
 class RunScripts extends React.Component {
     render() {
         return (
-            <h1>Run Scripts Tabs!!</h1>
+            <Run_script_page/>
         );
     }
 }
