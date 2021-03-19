@@ -1,5 +1,4 @@
 import logo from './res/logo.png';
-import './App.css';
 import axios from "axios";
 import React, { Component, useState } from 'react';
 import {
