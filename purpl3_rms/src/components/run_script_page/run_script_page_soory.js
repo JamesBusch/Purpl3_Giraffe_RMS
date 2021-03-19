@@ -69,16 +69,20 @@ function Select_script_func(parms){
 function Run_script(parms){
     let in_computer = document.getElementById("Select_Computer_text");
     let in_script = document.getElementById("Select_Script_text");
-    axios.post("/ping", {
+
+    axios.post("/api", {
         body: {
-            computer:in_computer.value,
-            script:in_script.value
+          op:"RUN_SCRIPT",
+          data:{
+            ScriptID: in_script.value,
+            ComputerID: in_computer.value
+          }
         }
         }).then((res) => {
-        alert(JSON.stringify(res.data))
+          alert(JSON.stringify(res.data))
         }).catch((res) =>{
-        alert("Post Failed")
-    })
+          alert("Post Failed")
+        })
 }
   
 
