@@ -8,15 +8,17 @@ import datetime
 
 import unittest
 
+
+# tables must be created in this order: user, script, computer, scriptlog
 class BaseTestCase(unittest.TestCase):
+    # Tests table creation from user class directly
+    def test_createTableU(self):
+      err = tou.UserTable().createTable()
+      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
+    
     # Tests table creation from script class directly
     def test_createTableS(self):
       err = tos.ScriptTable().createTable()
-      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
-
-    # Tests table creation from scriptLog class directly
-    def test_createTableSL(self):
-      err = tosl.ScriptLogTable().createTable()
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from computer class directly
@@ -24,9 +26,9 @@ class BaseTestCase(unittest.TestCase):
       err = toc.ComputerTable().createTable()
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
-    # Tests table creation from user class directly
-    def test_createTableU(self):
-      err = tou.UserTable().createTable()
+    # Tests table creation from scriptLog class directly
+    def test_createTableSL(self):
+      err = tosl.ScriptLogTable().createTable()
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from table class indirectly
