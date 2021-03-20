@@ -9,9 +9,9 @@ def createTable(command):
         try:
             cur = con.cursor()
             cur.execute(command)
-        except Error as e:
+        except:
             e = pref.getError(pref.ERROR_EXECUTE_CREATE_TABLE)
-    except Error as e:
+    except:
         e = pref.getError(pref.ERROR_SQLITE3_CONNECTION)
 
     return e
