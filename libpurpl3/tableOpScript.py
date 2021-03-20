@@ -3,7 +3,6 @@ import libpurpl3.preferences as pref
 import libpurpl3.tableOp as tableOp
 import libpurpl3.sqlFuncs as sqlFuncs
 import sqlite3
-import sqlFuncs
 
 
 
