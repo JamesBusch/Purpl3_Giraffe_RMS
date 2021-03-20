@@ -9,8 +9,9 @@ import sqlite3
 class Script(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
-    def __init__(self, id: int, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
-                 dtModified: datetime.datetime, size: float, isAdmin: bool):
+    def __init__(self, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
+                 dtModified: datetime.datetime, size: float, isAdmin: bool,
+                 id = None: int):
         self.id = id
         self.name = name
         self.fileName = fileName
@@ -88,8 +89,9 @@ class ScriptTable(tableOp.Table):
         return pref.getError(pref.ERROR_SUCCESS), scriptTup
 
     # overriding abstract method
+    # FIXME - TAKE OUT
     @staticmethod
-    def createEntry(values: tuple):
+    def createEntry(name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime, dtModified: datetime.datetime, size: float, isAdmin: bool):
         '''
         #TODO
         *add description*.
@@ -97,7 +99,7 @@ class ScriptTable(tableOp.Table):
         @return *add return*.
         '''
         #TODO error check what is passed to function (in terms of types?)
-        skelScript = Script(values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8])
+        skelScript = Script(name, fileName, author, desc, dtCreated, dtModified, size, isAdmin)
         return pref.getError(pref.ERROR_SUCCESS), skelScript
 
     # overriding abstract method
@@ -141,17 +143,20 @@ class ScriptTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def add(entry: Script):
+    def add(name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime, dtModified: datetime.datetime, size: float, isAdmin: bool):
         '''
         #TODO
         *add description*.
         @param *add param*.
         @return *add return*.
         '''
+        command = """ INSERT INTO s VALUES (
+                          value, value, ...)
+
+                  """
         id: int = 0
         return pref.getError(pref.ERROR_SUCCESS), id
         
-
     # overriding abstract method
     @staticmethod
     def delete(id: int):
