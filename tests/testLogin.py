@@ -4,7 +4,7 @@ from libpurpl3.tableOpUser import *
 from flask import jsonify
 from unittest.mock import MagicMock
 
-loginHolder = libpurpl3.tableOpUser.UserTable()
+loginHolder = UserTable()
 loginHolder.checkLogin = MagicMock(return_value=False)     
 
 if __name__ == '__main__':
