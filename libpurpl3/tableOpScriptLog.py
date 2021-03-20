@@ -1,17 +1,19 @@
 import datetime
 import libpurpl3.preferences as pref
 import libpurpl3.tableOp as tableOp
+import sqlite3
+
 
 class ScriptLog(tableOp.Entry):
     # TODO add default values
     # overriding abstract method
-    def __init__(self, ID: int, scriptID: int, userID: int, compID: int, startTime: datetime.datetime,
+    def __init__(self, id: int, scriptId: int, userId: int, compId: int, startTime: datetime.datetime,
                 endTime: datetime.datetime, returnVal: int, errorCode: int, stdoutFile: str, stderrFile: str,
                  asAdmin: bool):
-        self.ID = ID
-        self.scriptID = scriptID
-        self.userID = userID
-        self.compID = compID
+        self.id = id
+        self.scriptId = scriptId
+        self.userId = userId
+        self.compId = compId
         self.startTime = startTime
         self.endTime = endTime
         self.returnVal = returnVal
@@ -23,10 +25,10 @@ class ScriptLog(tableOp.Entry):
     # overriding abstract method
     def toJson(self):
         return {
-            "ID": str(self.ID),
-            "scriptID": str(self.scriptID),
-            "userID": str(self.userID),
-            "compID": str(self.compID),
+            "id": str(self.id),
+            "scriptId": str(self.scriptId),
+            "userId": str(self.userId),
+            "compId": str(self.compId),
             "startTime": str(self.startTime),
             "endTime": str(self.endTime),
             "returnVal": str(self.returnVal),
@@ -46,18 +48,36 @@ class ScriptLogTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        return pref.getError(pref.ERROR_SUCCESS)
+        command = """CREATE TABLE IF NOT EXISTS s (
+                       id INTEGER,
+                       scriptId INTEGER,
+                       userId INTEGER,
+                       compId INTEGER,
+                       startTime DATETIME,
+                       endTime DATETIME,
+                       returnVal INTEGER,
+                       errorCode INTEGER,
+                       stdoutFile CHAR(256),
+                       stderrFile CHAR(256),
+                       asAdmin BOOL,
+                       PRIMARY KEY(id),
+                       FOREIGN KEY (scriptId) REFERENCES s(id),
+                       FOREIGN KEY (userId) REFERENCES u(id),
+                       FOREIGN KEY (compId) REFERENCES c(id)
+                    );"""
+        e = sqlFuncs.createTable(command)
+        return e
 
     # overriding abstract method
     @staticmethod
-    def getByID(ID: int):
+    def getByID(id: int):
         '''
         #TODO
         *add description*.
         @param *add param*.
         @return *add return*.
         '''
-        skelScriptLog = ScriptLog(ID, 0, 0, 0, datetime.datetime.now(), datetime.datetime.now(), 1, 1, "stdoutFile.txt",
+        skelScriptLog = ScriptLog(id, 0, 0, 0, datetime.datetime.now(), datetime.datetime.now(), 1, 1, "stdoutFile.txt",
                                   "stderrFile.txt", False)
         return pref.getError(pref.ERROR_SUCCESS), skelScriptLog
 
@@ -93,7 +113,7 @@ class ScriptLogTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def getAttrByID(attr: str, ID: int):
+    def getAttrByID(attr: str, id: int):
         '''
         #TODO
         *add description*.
@@ -101,7 +121,7 @@ class ScriptLogTable(tableOp.Table):
         @return *add return*.
         '''
         # int
-        if (attr == "ID" or attr == "scriptID" or attr == "userID" or attr == "compID" or attr == "returnVal" or
+        if (attr == "id" or attr == "scriptId" or attr == "userId" or attr == "compId" or attr == "returnVal" or
                 attr == "errorCode"):
             return pref.getError(pref.ERROR_SUCCESS), 0
         # str
@@ -138,12 +158,12 @@ class ScriptLogTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        ID: int = 0
-        return pref.getError(pref.ERROR_SUCCESS), ID
+        id: int = 0
+        return pref.getError(pref.ERROR_SUCCESS), id
 
     # overriding abstract method
     @staticmethod
-    def delete(ID: int):
+    def delete(id: int):
         '''
         #TODO
         *add description*.

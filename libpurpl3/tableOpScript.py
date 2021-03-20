@@ -1,14 +1,17 @@
 import datetime
 import libpurpl3.preferences as pref 
 import libpurpl3.tableOp as tableOp
+import libpurpl3.sqlFuncs as sqlFuncs
+import sqlite3
+
 
 
 class Script(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
-    def __init__(self, ID: int, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
+    def __init__(self, id: int, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, size: float, isAdmin: bool):
-        self.ID = ID
+        self.id = id
         self.name = name
         self.fileName = fileName
         self.author = author
@@ -21,7 +24,7 @@ class Script(tableOp.Entry):
     # overriding abstract method
     def toJson(self):
         return {
-            "ID": str(self.ID),
+            "id": str(self.id),
             "name": str(self.name),
             "fileName": str(self.fileName),
             "author": str(self.author),
@@ -42,18 +45,32 @@ class ScriptTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        return pref.getError(pref.ERROR_SUCCESS)
+        command = """CREATE TABLE IF NOT EXISTS s (
+                       id INTEGER,
+                       name CHAR(256),
+                       fileName CHAR(256),
+                       author INTEGER,
+                       desc CHAR(1024),
+                       dtCreated DATETIME.
+                       dtModified DATETIME,
+                       size FLOAT(5, 3),
+                       isAdmin BOOL,
+                       PRIMARY KEY(id),
+                       FOREIGN KEY (author) REFERENCES u(id)
+                    );"""
+        e = sqlFuncs.createTable(command)
+        return e
 
     # overriding abstract method
     @staticmethod 
-    def getByID(ID: int):
+    def getByID(id: int):
         '''
         #TODO
         *add description*.
         @param *add param*.
         @return *add return*.
         '''
-        skelScript = Script(ID, "SkeletonScriptName", "SkeletonScriptName.py", 1, "Skeleton Script Description", datetime.datetime.now(), datetime.datetime.now(), 0, False)
+        skelScript = Script(id, "SkeletonScriptName", "SkeletonScriptName.py", 1, "Skeleton Script Description", datetime.datetime.now(), datetime.datetime.now(), 0, False)
         return pref.getError(pref.ERROR_SUCCESS), skelScript
 
     # overriding abstract method
@@ -85,7 +102,7 @@ class ScriptTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def getAttrByID(attr: str, ID: int):
+    def getAttrByID(attr: str, id: int):
         '''
         #TODO
         *add description*.
@@ -93,7 +110,7 @@ class ScriptTable(tableOp.Table):
         @return *add return*.
         '''
         # int
-        if(attr == "ID" or attr == "author"):
+        if(attr == "id" or attr == "author"):
             return pref.getError(pref.ERROR_SUCCESS), 0
         #str
         elif(attr == "name" or attr == "fileName" or attr == "desc"):
@@ -131,13 +148,13 @@ class ScriptTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        ID: int = 0
-        return pref.getError(pref.ERROR_SUCCESS), ID
+        id: int = 0
+        return pref.getError(pref.ERROR_SUCCESS), id
         
 
     # overriding abstract method
     @staticmethod
-    def delete(ID: int):
+    def delete(id: int):
         '''
         #TODO
         *add description*.
