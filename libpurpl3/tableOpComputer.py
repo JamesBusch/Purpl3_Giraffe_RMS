@@ -4,7 +4,6 @@ import libpurpl3.tableOp as tableOp
 import sqlite3
 import libpurpl3.sqlFuncs as sqlFuncs
 
-
 class Computer(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
