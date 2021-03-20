@@ -7,7 +7,7 @@ import sqlite3
 class Computer(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
-    def __init__(self, id: int, userId: int, name: str, nickName: str, desc: str, IP: str, dtCreated: datetime.datetime,
+    def __init__(self, id: int, userId: int, name: str, nickName: str, desc: str, username:str, IP: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, asAdmin: bool):
         self.id = id
         self.userId = userId
@@ -51,6 +51,7 @@ class ComputerTable(tableOp.Table):
                        name CHAR(256),
                        nickName CHAR(256),
                        desc CHAR(1024),
+                       username CHAR(256),
                        IP CHAR(256),
                        dtCreated DATETIME,
                        dtModified DATETIME,
@@ -70,7 +71,7 @@ class ComputerTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        skelComp = Computer(id, 0, "RachelsComputer", "RaquelsComp", "Rachel's computer description",
+        skelComp = Computer(id, 0, "RachelsComputer", "RaquelsComp", "Rachel's computer description", "rbroders",
                               "some IP address idk", datetime.datetime.now(), datetime.datetime.now(), False)
         return pref.getError(pref.ERROR_SUCCESS), skelComp
 
@@ -83,9 +84,9 @@ class ComputerTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        skelComp1 = Computer(0, 0, "RachelsComputer1", "RaquelsComp1", "Rachel's computer description 1",
+        skelComp1 = Computer(0, 0, "RachelsComputer1", "RaquelsComp1", "Rachel's computer description 1","rbroders",
                             "root","127.0.0.1", datetime.datetime.now(), datetime.datetime.now(), False)
-        skelComp2 = Computer(1, 0, "RachelsComputer2", "RaquelsComp2", "Rachel's computer description 2",
+        skelComp2 = Computer(1, 0, "RachelsComputer2", "RaquelsComp2", "Rachel's computer description 2", "rbroders",
                             "larry","127.0.0.1", datetime.datetime.now(), datetime.datetime.now(), False)
         compTup = (skelComp1, skelComp2)
         return pref.getError(pref.ERROR_SUCCESS), compTup
