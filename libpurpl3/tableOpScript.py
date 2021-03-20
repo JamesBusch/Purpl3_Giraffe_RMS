@@ -11,7 +11,7 @@ class Script(tableOp.Entry):
     # overriding abstract method
     def __init__(self, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, size: float, isAdmin: bool,
-                 id = None: int):
+                 id = None):
         self.id = id
         self.name = name
         self.fileName = fileName
