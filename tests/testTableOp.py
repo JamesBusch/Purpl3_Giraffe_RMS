@@ -10,22 +10,22 @@ import unittest
 class BaseTestCase(unittest.TestCase):
     # Tests table creation from script class directly
     def test_createTableS(self):
-      err = tos.createTable()
+      err = tos.scriptTable().createTable()
       self.assertEqual(err,pref.Success)
 
     # Tests table creation from scriptLog class directly
     def test_createTableSL(self):
-      err = tosl.createTable()
+      err = tosl.scriptLogTable().createTable()
       self.assertEqual(err,pref.Success)
 
     # Tests table creation from computer class directly
     def test_createTableC(self):
-      err = toc.createTable()
+      err = toc.computerTable().createTable()
       self.assertEqual(err,pref.Success)
 
     # Tests table creation from user class directly
     def test_createTableU(self):
-      err = tou.createTable()
+      err = tou.userTable().createTable()
       self.assertEqual(err,pref.Success)
 
     # Tests table creation from table class indirectly
