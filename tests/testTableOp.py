@@ -3,6 +3,7 @@ import libpurpl3.tableOpScript as tos
 import libpurpl3.tableOpScriptLog as tosl
 import libpurpl3.tableOpComputer as toc
 import libpurpl3.tableOpUser as tou
+import libpurpl3.preferences as pref
 import datetime
 
 import unittest
@@ -11,22 +12,22 @@ class BaseTestCase(unittest.TestCase):
     # Tests table creation from script class directly
     def test_createTableS(self):
       err = tos.ScriptTable().createTable()
-      self.assertEqual(err,pref.Success)
+      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from scriptLog class directly
     def test_createTableSL(self):
       err = tosl.ScriptLogTable().createTable()
-      self.assertEqual(err,pref.Success)
+      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from computer class directly
     def test_createTableC(self):
       err = toc.ComputerTable().createTable()
-      self.assertEqual(err,pref.Success)
+      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from user class directly
     def test_createTableU(self):
       err = tou.UserTable().createTable()
-      self.assertEqual(err,pref.Success)
+      self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from table class indirectly
     def test_createTableT(self):
