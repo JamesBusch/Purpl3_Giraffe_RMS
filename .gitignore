@@ -6,4 +6,7 @@ __pycache__
 .pytest*
 .vscode
 key
+<<<<<<< HEAD
 key.pub
+=======
+>>>>>>> 865052f863b9c6a79bf5fce73ee247c30bfc98dc

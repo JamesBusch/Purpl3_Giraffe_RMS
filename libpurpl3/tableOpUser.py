@@ -48,6 +48,7 @@ class UserTable(tableOp.Table):
                     );"""
         e = sqlFuncs.createTable(command)
         return e
+<<<<<<< HEAD
 
     @staticmethod
     def checkLogin(userName: str, password: str)->int:
@@ -61,6 +62,8 @@ class UserTable(tableOp.Table):
         '''
 
         return True
+=======
+>>>>>>> 865052f863b9c6a79bf5fce73ee247c30bfc98dc
 
     # overriding abstract method
     @staticmethod

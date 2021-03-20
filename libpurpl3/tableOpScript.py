@@ -11,7 +11,11 @@ class Script(tableOp.Entry):
     # overriding abstract method
     def __init__(self, name: str, fileName: str, author: int, desc: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, size: float, isAdmin: bool,
+<<<<<<< HEAD
                  id = None):
+=======
+                 id = None: int):
+>>>>>>> 865052f863b9c6a79bf5fce73ee247c30bfc98dc
         self.id = id
         self.name = name
         self.fileName = fileName
@@ -151,7 +155,12 @@ class ScriptTable(tableOp.Table):
         @return *add return*.
         '''
         command = """ INSERT INTO s VALUES (
+<<<<<<< HEAD
                           value, value, ...)
+=======
+                          value, value, ...
+                          )
+>>>>>>> 865052f863b9c6a79bf5fce73ee247c30bfc98dc
 
                   """
         id: int = 0
