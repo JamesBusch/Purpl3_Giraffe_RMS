@@ -1,13 +1,15 @@
 import datetime
 import libpurpl3.preferences as pref
 import libpurpl3.tableOp as tableOp
+import sqlite3
+
 
 class User(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
-    def __init__(self, ID: int, username: str, password: str, dtCreated: datetime.datetime,
+    def __init__(self, id: int, username: str, password: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, admin: bool):
-        self.ID = ID
+        self.id = id
         self.username = username
         self.password = password
         self.dtCreated = dtCreated
@@ -17,7 +19,7 @@ class User(tableOp.Entry):
     # overriding abstract method
     def toJson(self):
         return {
-            "ID": str(self.ID),
+            "id": str(self.id),
             "username": str(self.username),
             "password": str(self.password),
             "dtCreated": str(self.dtCreated),
@@ -35,8 +37,18 @@ class UserTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        return pref.getError(pref.ERROR_SUCCESS)
-    
+        command = """CREATE TABLE IF NOT EXISTS s (
+                       id INTEGER,
+                       username CHAR(256),
+                       password CHAR(256),
+                       dtCreated DATETIME,
+                       dtModified DATETIME,
+                       admin BOOL,
+                       PRIMARY KEY(id),
+                    );"""
+        e = sqlFuncs.createTable(command)
+        return e
+
     @staticmethod
     def checkLogin(userName: str, password: str)->int:
         '''
@@ -52,14 +64,14 @@ class UserTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def getByID(ID: int):
+    def getByID(id: int):
         '''
         #TODO
         *add description*.
         @param *add param*.
         @return *add return*.
         '''
-        skelUser = User(ID, "username", "hashed password", datetime.datetime.now(), datetime.datetime.now(), False)
+        skelUser = User(id, "username", "hashed password", datetime.datetime.now(), datetime.datetime.now(), False)
         return pref.getError(pref.ERROR_SUCCESS), skelUser
 
     # overriding abstract method
@@ -91,7 +103,7 @@ class UserTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def getAttrByID(attr: str, ID: int):
+    def getAttrByID(attr: str, id: int):
         '''
         #TODO
         *add description*.
@@ -99,7 +111,7 @@ class UserTable(tableOp.Table):
         @return *add return*.
         '''
         # int
-        if (attr == "ID"):
+        if (attr == "id"):
             return pref.getError(pref.ERROR_SUCCESS), 0
         # str
         elif (attr == "username" or attr == "password"):
@@ -134,12 +146,12 @@ class UserTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        ID: int = 0
-        return pref.getError(pref.ERROR_SUCCESS), ID
+        id: int = 0
+        return pref.getError(pref.ERROR_SUCCESS), id
 
     # overriding abstract method
     @staticmethod
-    def delete(ID: int):
+    def delete(id: int):
         '''
         #TODO
         *add description*.

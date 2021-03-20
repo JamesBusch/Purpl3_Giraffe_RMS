@@ -1,14 +1,16 @@
 import datetime
 import libpurpl3.preferences as pref
 import libpurpl3.tableOp as tableOp
+import sqlite3
+
 
 class Computer(tableOp.Entry):
     #TODO add default values
     # overriding abstract method
-    def __init__(self, ID: int, userID: int, name: str, nickName: str, desc: str, username: str, IP: str, dtCreated: datetime.datetime,
+    def __init__(self, id: int, userId: int, name: str, nickName: str, desc: str, IP: str, dtCreated: datetime.datetime,
                  dtModified: datetime.datetime, asAdmin: bool):
-        self.ID = ID
-        self.userID = userID
+        self.id = id
+        self.userId = userId
         self.name = name
         self.nickName = nickName
         self.desc = desc
@@ -21,8 +23,8 @@ class Computer(tableOp.Entry):
     # overriding abstract method
     def toJson(self):
         return {
-            "ID": str(self.ID),
-            "userID": str(self.userID),
+            "id": str(self.id),
+            "userId": str(self.userId),
             "name": str(self.name),
             "nickName": str(self.nickName),
             "desc": str(self.desc),
@@ -43,19 +45,33 @@ class ComputerTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        return pref.getError(pref.ERROR_SUCCESS)
+        command = """CREATE TABLE IF NOT EXISTS s (
+                       id INTEGER,
+                       userId INTEGER,
+                       name CHAR(256),
+                       nickName CHAR(256),
+                       desc CHAR(1024),
+                       IP CHAR(256),
+                       dtCreated DATETIME,
+                       dtModified DATETIME,
+                       asAdmin BOOL,
+                       PRIMARY KEY(id),
+                       FOREIGN KEY (userId) REFERENCES u(id),
+                    );"""
+        e = sqlFuncs.createTable(command)
+        return e
 
     # overriding abstract method
     @staticmethod
-    def getByID(ID: int):
+    def getByID(id: int):
         '''
         #TODO
         *add description*.
         @param *add param*.
         @return *add return*.
         '''
-        skelComp = Computer(ID, 0, "RachelsComputer", "RaquelsComp", "Rachel's computer description",
-                              "root","127.0.0.1", datetime.datetime.now(), datetime.datetime.now(), False)
+        skelComp = Computer(id, 0, "RachelsComputer", "RaquelsComp", "Rachel's computer description",
+                              "some IP address idk", datetime.datetime.now(), datetime.datetime.now(), False)
         return pref.getError(pref.ERROR_SUCCESS), skelComp
 
     # overriding abstract method
@@ -90,7 +106,7 @@ class ComputerTable(tableOp.Table):
 
     # overriding abstract method
     @staticmethod
-    def getAttrByID(attr: str, ID: int):
+    def getAttrByID(attr: str, id: int):
         '''
         #TODO
         *add description*.
@@ -98,7 +114,7 @@ class ComputerTable(tableOp.Table):
         @return *add return*.
         '''
         # int
-        if (attr == "ID" or attr == "userID"):
+        if (attr == "id" or attr == "userId"):
             return pref.getError(pref.ERROR_SUCCESS), 0
         # str
         elif (attr == "name" or attr == "nickName" or attr == "desc" or attr == "IP" or attr == "username"):
@@ -134,12 +150,12 @@ class ComputerTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
-        ID: int = 0
-        return pref.getError(pref.ERROR_SUCCESS), ID
+        id: int = 0
+        return pref.getError(pref.ERROR_SUCCESS), id
 
     # overriding abstract method
     @staticmethod
-    def delete(ID: int):
+    def delete(id: int):
         '''
         #TODO
         *add description*.
