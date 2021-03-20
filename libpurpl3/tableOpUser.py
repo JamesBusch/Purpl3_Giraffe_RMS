@@ -45,7 +45,7 @@ class UserTable(tableOp.Table):
                        dtCreated DATETIME,
                        dtModified DATETIME,
                        admin BOOL,
-                       PRIMARY KEY(id),
+                       PRIMARY KEY(id)
                     );"""
         e = sqlFuncs.createTable(command)
         return e

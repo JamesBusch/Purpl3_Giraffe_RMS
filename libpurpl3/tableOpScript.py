@@ -52,7 +52,7 @@ class ScriptTable(tableOp.Table):
                        fileName CHAR(256),
                        author INTEGER,
                        desc CHAR(1024),
-                       dtCreated DATETIME.
+                       dtCreated DATETIME,
                        dtModified DATETIME,
                        size FLOAT(5, 3),
                        isAdmin BOOL,

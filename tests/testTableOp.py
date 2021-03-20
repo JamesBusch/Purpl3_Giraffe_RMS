@@ -39,14 +39,6 @@ class BaseTestCase(unittest.TestCase):
       print(err.string)
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
-    # Tests table creation from table class indirectly
-    def test_createTableT(self):
-      err = to.Table().createTable()
-      print(err.code)
-      print(err.string)
-      err2 = NotImplementedError("Subclasses should implement this!")
-      self.assertEqual(err1,err2)
-
     
       
 

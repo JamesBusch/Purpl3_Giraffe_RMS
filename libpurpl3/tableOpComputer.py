@@ -57,7 +57,7 @@ class ComputerTable(tableOp.Table):
                        dtModified DATETIME,
                        asAdmin BOOL,
                        PRIMARY KEY(id),
-                       FOREIGN KEY (userId) REFERENCES u(id),
+                       FOREIGN KEY (userId) REFERENCES u(id)
                     );"""
         e = sqlFuncs.createTable(command)
         return e
