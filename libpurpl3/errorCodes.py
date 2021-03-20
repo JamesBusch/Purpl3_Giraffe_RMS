@@ -111,8 +111,8 @@ def getErrorCodeList() -> dict:
 
     # 66- 72 SQLITE3 ERRORS
     # getAttrName(ERROR_SQL_FAILURE): Error(66, "Returned %d: general SQL failure: %s"),
-    getAttrName(ERROR_SQLITE3_CONNECTION): Error(67, "Returned %d: Failed to open connection to sqlite3 database: %s"),
-    getAttrName(ERROR_EXECUTE_CREATE_TABLE): Error(68, "Returned %d: Failed to create a table in the database: %s"),
+    getAttrName(ERROR_SQLITE3_CONNECTION): Error(67, "Returned %d: Failed to open connection to sqlite3 database %s"),
+    getAttrName(ERROR_EXECUTE_CREATE_TABLE): Error(68, "Returned %d: Failed to create a table in the database %s"),
 
     #Vars for error codes
     getAttrName(ERROR_VAR) : {
