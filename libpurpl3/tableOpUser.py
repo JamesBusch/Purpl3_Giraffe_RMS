@@ -2,6 +2,7 @@ import datetime
 import libpurpl3.preferences as pref
 import libpurpl3.tableOp as tableOp
 import sqlite3
+import sqlFuncs
 
 
 class User(tableOp.Entry):
