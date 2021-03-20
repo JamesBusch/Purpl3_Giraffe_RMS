@@ -14,26 +14,36 @@ class BaseTestCase(unittest.TestCase):
     # Tests table creation from user class directly
     def test_createTableU(self):
       err = tou.UserTable().createTable()
+      print(err.code)
+      print(err.string)
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
     
     # Tests table creation from script class directly
     def test_createTableS(self):
       err = tos.ScriptTable().createTable()
+      print(err.code)
+      print(err.string)
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from computer class directly
     def test_createTableC(self):
       err = toc.ComputerTable().createTable()
+      print(err.code)
+      print(err.string)
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from scriptLog class directly
     def test_createTableSL(self):
       err = tosl.ScriptLogTable().createTable()
+      print(err.code)
+      print(err.string)
       self.assertEqual(err,pref.getError(pref.ERROR_SUCCESS))
 
     # Tests table creation from table class indirectly
     def test_createTableT(self):
       err = to.Table().createTable()
+      print(err.code)
+      print(err.string)
       err2 = NotImplementedError("Subclasses should implement this!")
       self.assertEqual(err1,err2)
 
