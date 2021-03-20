@@ -43,7 +43,7 @@ class ComputerTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        command = """CREATE TABLE IF NOT EXISTS s (
+        command = """CREATE TABLE IF NOT EXISTS c (
                        id INTEGER,
                        userId INTEGER,
                        name CHAR(256),

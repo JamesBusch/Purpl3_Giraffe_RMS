@@ -48,7 +48,7 @@ class ScriptLogTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        command = """CREATE TABLE IF NOT EXISTS s (
+        command = """CREATE TABLE IF NOT EXISTS sl (
                        id INTEGER,
                        scriptId INTEGER,
                        userId INTEGER,

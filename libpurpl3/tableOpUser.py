@@ -37,7 +37,7 @@ class UserTable(tableOp.Table):
         @param None.
         @return errorCode: Error
         '''
-        command = """CREATE TABLE IF NOT EXISTS s (
+        command = """CREATE TABLE IF NOT EXISTS u (
                        id INTEGER,
                        username CHAR(256),
                        password CHAR(256),
