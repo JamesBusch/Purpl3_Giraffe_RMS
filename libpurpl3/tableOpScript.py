@@ -151,7 +151,8 @@ class ScriptTable(tableOp.Table):
         @return *add return*.
         '''
         command = """ INSERT INTO s VALUES (
-                          value, value, ...)
+                          value, value, ...
+                          )
 
                   """
         id: int = 0
