@@ -185,6 +185,7 @@ class ScriptTable(tableOp.Table):
         @param *add param*.
         @return *add return*.
         '''
+
         # int
         if(attr == "ID" or attr == "author"):
             return pref.getError(pref.ERROR_SUCCESS), 0
