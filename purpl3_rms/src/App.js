@@ -38,7 +38,7 @@ function App() {
             <ul className="navTabs">
               <li className="tab"><NavLink exact to="/run-script">Run Script</NavLink></li>
               <li className="tab"><NavLink to="/script-logs">Script Logs</NavLink></li>
-              <li className="tab"><NavLink to="/schedule">Schedule</NavLink></li>
+              <li className="tab"><NavLink to="/schedule">Computer</NavLink></li>
               <li className="tab"><NavLink to="/script-viewer">Script Viewer</NavLink></li>
               <li className="tab"><NavLink to="/computer">Computer</NavLink></li>
               <li className="tab"><NavLink to="/error-doc">Error Doc</NavLink></li>
